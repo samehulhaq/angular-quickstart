@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Calculatology.org calories calculator</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+    <script
+        src="https://cdn.jsdelivr.net/combine/npm/accounting-js@1.1.1,npm/vue@2.5.16,npm/vue-numeric@2.3.0"></script>
+
+
+    <style type="text/css">
+        .table tr>td {
+            vertical-align: middle;
+        }
+
+        body {
+            background-color: whitesmoke;
+
+        }
+
+        @media only screen and (max-width: 576px) {
+            .change {
+                font-size: 15px;
+                font-weight: bold;
+            }
+        }
+    </style>
+
+    <script
+        src="https://cdn.jsdelivr.net/combine/npm/accounting-js@1.1.1,npm/vue@2.5.16,npm/vue-numeric@2.3.0"></script>
+    <!-- container -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.3.1/jspdf.plugin.autotable.min.js"></script>
+</head>
+
+<body>
+
+
+    <div class="container-fluid text-left " style="background-color:#2aa742; height: 70px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 style="color: white; " class="pt-3 text-center">
+                    <span class="change"> CURRENT FINANCIAL SITUATION </span>
+                </h2>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container-fluid text-center " style="background-color:#f7c010; height: 10px;">
+
+    </div>
+    <div id="app" class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-12">
+                <!-- <div style="background-color: #f7c010;height: 60px;" class="mt-3">
+
+                    <div class="row">
+                        <div class=" text-left pt-2">
+                            <h3> Food</h3>
+                        </div>
+                        <div class=" text-left pt-2">
+                            <h3> Calorie</h3>
+                        </div>
+
+                    </div>
+                </div> -->
+                <div class="mt-5">
+                    <table class="table table-stripped table-sm">
+                        <thead>
+
+                            <th class="text-center">Liabilities </th>
+                            <th class="text-center">Enter Current Lender</th>
+                            <th class="text-center">Enter Today's Rate </th>
+                            <th class="text-center">Enter Current Balance </th>
+                            <th class="text-center">Enter Monthly Payment</th>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th> Mortgage</th>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="D3"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="E3"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="F3"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="G3"></vue-numeric>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th> Car loan</th>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="D4"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="E4"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="F4"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="G4"></vue-numeric>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th> Credit Cards</th>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="D5"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="E5"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="F5"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="G5"></vue-numeric>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th> Personal Line</th>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="D6"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="E6"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="F6"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="G6"></vue-numeric>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th> Home Equity Line Bank</th>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="D7"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="E7"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="F7"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="G7"></vue-numeric>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th> Home Equity Line Pvt</th>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="D8"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="E8"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="F8"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="G8"></vue-numeric>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th> Home Equity Loan Bank</th>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="D9"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="E9"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="F9"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="G9"></vue-numeric>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th> Home Equity Loan Pvt</th>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="D10"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="E10"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="F10"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="G10"></vue-numeric>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th> Student Loan</th>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="D11"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="E11"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="F11"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="G11"></vue-numeric>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th> Student Line</th>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="D12"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="E12"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="F12"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="G12"></vue-numeric>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th> Other Debts</th>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="D13"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="E13"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="F13"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="G13"></vue-numeric>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th> </th>
+                                <td class="text-center"> </td>
+                                <td class="text-center"> weighted Apr. </td>
+                                <td class="text-center"> Total Balance </td>
+                                <td class="text-center"> Monthly Cost </td>
+                            </tr>
+                            <tr>
+                                <th> </th>
+                                <td class="text-center"> </td>
+                                <td class="text-center"> {{E15}} </td>
+                                <td class="text-center">{{ this.F3 +
+                                    this.F4 +
+                                    this.F5 +
+                                    this.F6 +
+                                    this.F7 +
+                                    this.F8 +
+                                    this.F9 +
+                                    this.F10 +
+                                    this.F11 +
+                                    this.F12 +
+                                    this.F13}} </td>
+                                <td class="text-center"> {{ this.G3 +
+                                    this.G4 +
+                                    this.G5 +
+                                    this.G6 +
+                                    this.G7 +
+                                    this.G8 +
+                                    this.G9 +
+                                    this.G10 +
+                                    this.G11 +
+                                    this.G12 +
+                                    this.G13}} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-5">
+                    <table class="table table-stripped table-sm">
+                        <thead>
+
+                            <th class="text-center">Choose Liability</th>
+                            <th class="text-center">Enter New Balance</th>
+                            <th class="text-center">Enter Suggested Rate</th>
+                            <th class="text-center">Choose Amortization</th>
+                            <th class="text-center">Calculated Monthly Payment</th>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>
+
+                                    <select name="" id="" class="form-control">
+                                        <option value="" selected> Mortgage</option>
+                                        <option value=""> car loan </option>
+                                        <option value=""> credit card</option>
+                                        <option value=""> personal line</option>
+                                        <option value=""> home equity line bank</option>
+                                        <option value=""> homeequity line pvt</option>
+                                        <option value=""> home equity loan bank</option>
+                                        <option value=""> home equity loan pvt</option>
+                                        <option value=""> student load</option>
+                                        <option value=""> student lined</option>
+                                    </select>
+                                </th>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" currency="%" :precision="2"
+                                        currency-symbol-position="suffix" v-model="D19"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="E19"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <select name="" id="" class="form-control" v-model="F19">
+                                        <option value="0" selected> 0</option>
+                                        <option value="25 "> 25 </option>
+                                        <option value="30"> 30</option>
+                                        <option value="35"> 35</option>
+                                        <option value="40"> 40</option>
+                                    </select>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="G19"></vue-numeric>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+
+                                    <select name="" id="" class="form-control">
+                                        <option value="" selected> Mortgage</option>
+                                        <option value=""> car loan </option>
+                                        <option value=""> credit card</option>
+                                        <option value=""> personal line</option>
+                                        <option value=""> home equity line bank</option>
+                                        <option value=""> homeequity line pvt</option>
+                                        <option value=""> home equity loan bank</option>
+                                        <option value=""> home equity loan pvt</option>
+                                        <option value=""> student load</option>
+                                        <option value=""> student lined</option>
+                                    </select>
+                                </th>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" currency="%" :precision="2"
+                                        currency-symbol-position="suffix" v-model="D20"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="E20"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <select name="" id="" class="form-control" v-model="F20">
+                                        <option value="0" selected> 0</option>
+                                        <option value="25 "> 25 </option>
+                                        <option value="30"> 30</option>
+                                        <option value="35"> 35</option>
+                                        <option value="40"> 40</option>
+                                    </select>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" :value="E20*D20/12"></vue-numeric>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+
+                                    <select name="" id="" class="form-control">
+                                        <option value="" selected> Mortgage</option>
+                                        <option value=""> car loan </option>
+                                        <option value=""> credit card</option>
+                                        <option value=""> personal line</option>
+                                        <option value=""> home equity line bank</option>
+                                        <option value=""> homeequity line pvt</option>
+                                        <option value=""> home equity loan bank</option>
+                                        <option value=""> home equity loan pvt</option>
+                                        <option value=""> student load</option>
+                                        <option value=""> student lined</option>
+                                    </select>
+                                </th>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" currency="%" :precision="2"
+                                        currency-symbol-position="suffix" v-model="D21"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="E21"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <select name="" id="" class="form-control" v-model="F21">
+                                        <option value="0" selected> 0</option>
+                                        <option value="25 "> 25 </option>
+                                        <option value="30"> 30</option>
+                                        <option value="35"> 35</option>
+                                        <option value="40"> 40</option>
+                                    </select>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="G21"></vue-numeric>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+
+                                    <select name="" id="" class="form-control">
+                                        <option value=""> Mortgage</option>
+                                        <option value="" selected> car loan </option>
+                                        <option value=""> credit card</option>
+                                        <option value=""> personal line</option>
+                                        <option value=""> home equity line bank</option>
+                                        <option value=""> homeequity line pvt</option>
+                                        <option value=""> home equity loan bank</option>
+                                        <option value=""> home equity loan pvt</option>
+                                        <option value=""> student load</option>
+                                        <option value=""> student lined</option>
+                                    </select>
+                                </th>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" currency="%" :precision="2"
+                                        currency-symbol-position="suffix" v-model="D22"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="E22"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <select name="" id="" class="form-control" v-model="F22">
+                                        <option value="0"> 0</option>
+                                        <option value="25" selected> 25 </option>
+                                        <option value="30"> 30</option>
+                                        <option value="35"> 35</option>
+                                        <option value="40"> 40</option>
+                                    </select>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="G22"></vue-numeric>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+
+                                    <select name="" id="" class="form-control">
+                                        <option value="" selected> Mortgage</option>
+                                        <option value=""> car loan </option>
+                                        <option value="" selected> credit card</option>
+                                        <option value=""> personal line</option>
+                                        <option value=""> home equity line bank</option>
+                                        <option value=""> homeequity line pvt</option>
+                                        <option value=""> home equity loan bank</option>
+                                        <option value=""> home equity loan pvt</option>
+                                        <option value=""> student load</option>
+                                        <option value=""> student lined</option>
+                                    </select>
+                                </th>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" currency="%" :precision="2"
+                                        currency-symbol-position="suffix" v-model="D23"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="E23"></vue-numeric>
+                                </td>
+                                <td class="text-center">
+                                    <select name="" id="" class="form-control" v-model="F23">
+                                        <option value="0"> 0</option>
+                                        <option value="25" selected> 25 </option>
+                                        <option value="30"> 30</option>
+                                        <option value="35"> 35</option>
+                                        <option value="40"> 40</option>
+                                    </select>
+                                </td>
+                                <td class="text-center">
+                                    <vue-numeric class="form-control" v-model="G23"></vue-numeric>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" colspan="2">New Financial Snapshot </th>
+                                <th class="text-center">{{E24}}</th>
+                                <th class="text-center"> {{ this.D19 +
+                                    this.D20 +
+                                    this.D21 +
+                                    this.D22 +
+                                    this.D23}}</th>
+                                <th class="text-center">
+
+                                    {{ this.G19 +
+                                    this.G20 +
+                                    this.G21 +
+                                    this.G22 +
+                                    this.G23}}
+                                </th>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <table class="table table-sm">
+                    <thead>
+                        <th>
+                        <th colspan="2"> Cash Flow </th>
+                        <th colspan="2"> Equity Takeout </th>
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monthly</td>
+                            <td>
+                                <vue-numeric class="form-control" :value="J11"></vue-numeric>
+                            </td>
+                            <td> Cashout Amount</td>
+                            <td>
+                                <vue-numeric class="form-control" :value="D19-F3"></vue-numeric>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Annual</td>
+                            <td>
+                                <vue-numeric class="form-control" :value="J11*12"></vue-numeric>
+                            </td>
+                            <td> Est. Cost of Borrowing</td>
+                            <td>
+                                <vue-numeric class="form-control" :value="L12"></vue-numeric>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th colspan="2">NOW: All Debts Other than Mortgage Cost you	 </th>
+                            <th colspan="2">
+                                <vue-numeric class="form-control" v-model="K14"></vue-numeric>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">SUGGESTED: All Debts Included in the Mortgage will Cost You </th>
+                            <th colspan="2">
+                                <vue-numeric class="form-control" v-model="K15"></vue-numeric>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Net Monthly Saving/Loss </th>
+                            <th colspan="2">
+                                <vue-numeric class="form-control" v-model="K16"></vue-numeric>
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <th colspan="2">Net Annual Saving/Loss </th>
+                            <th colspan="2">
+                                <vue-numeric class="form-control" v-model="K17"></vue-numeric>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="margin-top: 200px;">
+                <h6 mt-5><a href="https://www.fiverr.com/share/V3m5yY">By <u> Samehulhaq</u></a></h6>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    </div>
+    <script type="text/javascript">
+
+        function number(n) {
+            return (isNaN(parseFloat(n)) || isFinite(n)) ? 0 : parseFloat(n);
+        }
+        Vue.use(VueNumeric.default);
+
+        var app = new Vue({
+            el: "#app",
+            created: function () {
+                console.log('app created');
+            },
+            data: {
+                D3: 1,
+                E3: 1,
+                F3: 1,
+                G3: 1,
+                D4: 1,
+                E4: 1,
+                F4: 1,
+                G4: 1,
+                D5: 1,
+                E5: 1,
+                F5: 1,
+                G5: 1,
+                D6: 1,
+                E6: 1,
+                F6: 1,
+                G6: 1,
+                D7: 1,
+                E7: 1,
+                F7: 1,
+                G7: 1,
+                D8: 1,
+                E8: 1,
+                F8: 1,
+                G8: 1,
+                D9: 1,
+                E9: 1,
+                F9: 1,
+                G9: 1,
+                D10: 1,
+                E10: 1,
+                F10: 1,
+                G10: 1,
+                D11: 1,
+                E11: 1,
+                F11: 1,
+                G11: 1,
+                D12: 1,
+                E12: 1,
+                F12: 1,
+                G12: 1,
+                D13: 1,
+                E13: 1,
+                F13: 1,
+                G13: 1,
+                C19: 1,
+                D19: 1,
+                E19: 1,
+                F19: 1,
+                G19: 1,
+                C20: 1,
+                D20: 1,
+                E20: 1,
+                F20: 1,
+                G20: 1,
+                C21: 1,
+                D21: 1,
+                E21: 1,
+                F21: 1,
+                G21: 1,
+                C22: 1,
+                D22: 1,
+                E22: 1,
+                F22: 1,
+                G22: 1,
+                C23: 1,
+                D23: 1,
+                E23: 1,
+                F23: 1,
+                G23: 1,
+                // message: 'Hello World',
+                // amount: 25000,
+                // eextendedmessage: 'Hello World',
+                // eextendedamount: 25000,
+                // eextendedE18: 1900.00,
+                // eextendedE20: 2000.00,
+                // date: new Date().toISOString().slice(0, 10),
+                // extendedamount: 25000,
+                // client: "Don Leibee",
+                // Business: [
+                //     {
+                //         Name: '',
+                //         Value: 0,
+                //     },
+                // ],
+                // E18: 1900.00,
+                // extendeddate: new Date().toISOString().slice(0, 10),
+                // eextendeddate: new Date().toISOString().slice(0, 10),
+                // extendedclient: "Don Leibee",
+                // eextendedclient: "s Leibee",
+                // E20: 2000.00,
+                // extendedmessage: 'Hello World',
+                // extendedE18: 1900.00,
+                // extendedE20: 2000.00,
+            },
+
+            computed: {
+
+                E15: function () {
+                    return ((this.E3 * this.F3) +
+                        (this.E4 * this.F4) +
+                        (this.E5 * this.F5) +
+                        (this.E6 * this.F6) +
+                        (this.E7 * this.F7) +
+                        (this.E8 * this.F8) +
+                        (this.E9 * this.F9) +
+                        (this.E10 * this.F10) +
+                        (this.E11 * this.F11) +
+                        (this.E12 * this.F12) +
+                        (this.E13 * this.F13)) / (
+
+                            this.F3 +
+                            this.F4 +
+                            this.F5 +
+                            this.F6 +
+                            this.F7 +
+                            this.F8 +
+                            this.F9 +
+                            this.F10 +
+                            this.F11 +
+                            this.F12 +
+                            this.F13
+                        )
+                },
+                E24: function () {
+                    return ((this.E19 / 100 * this.F19) +
+                        (this.E20 / 100 * this.F20) +
+                        (this.E21 / 100 * this.F21) +
+                        (this.E22 / 100 * this.F22) +
+                        (this.E23 / 100 * this.F23)
+                    ) / (
+                            this.F19 +
+                            this.F20 +
+                            this.F21 +
+                            this.F22 +
+                            this.F23
+                        )
+                },
+
+                J11: function () {
+                    return (this.G3 +
+                        this.G4 +
+                        this.G5 +
+                        this.G6 +
+                        this.G7 +
+                        this.G8 +
+                        this.G9 +
+                        this.G10 +
+                        this.G11 +
+                        this.G12 +
+                        this.G13) - (this.G19 +
+                            this.G20 +
+                            this.G21 +
+                            this.G22 +
+                            this.G23)
+                },
+                L12: function () {
+                    return ((this.D19 - this.F3) * this.E19) / (1 - (1 + this.E19) ^ (-(this.F19 * 12))) * 0.1
+                },
+                K14: function () {
+                    return (this.G4 +
+                        this.G5 +
+                        this.G6 +
+                        this.G7 +
+                        this.G8 +
+                        this.G9 +
+                        this.G10 +
+                        this.G11 +
+                        this.G12)
+                },
+                K15: function () { return this.L12 },
+                K16: function () { return  this.K14-this.K15 },
+                K17: function () { return this.K16 * 12 },
+                // TotalLowest: function () {
+                //     var s = this;
+                //     return this.Business.reduce(function (sum, item) {
+                //         return sum + (item.Name * s.E18)
+                //     }, 0)
+                // },
+                // TotalValueSum: function () {
+                //     return this.Business.reduce(function (sum, item) {
+                //         return sum + item.Value
+                //     }, 0)
+
+                // },
+                // TotalHighest: function () {
+                //     var s = this;
+                //     return this.Business.reduce(function (sum, item) {
+                //         return sum + (item.Name * s.E20)
+                //     }, 0)
+                // },
+
+                // TotalsLowest: function () {
+                //     var s = this;
+                //     return this.Business.reduce(function (sum, item) {
+                //         return sum + (item.Name * s.E18)
+                //     }, 0)
+                // },
+                // TotalsValueSum: function () {
+                //     return this.Business.reduce(function (sum, item) {
+                //         return sum + item.Value
+                //     }, 0)
+
+                // },
+                // TotalsHighest: function () {
+                //     var s = this;
+                //     return this.Business.reduce(function (sum, item) {
+                //         return sum + (item.Name * s.E20)
+                //     }, 0)
+                // },
+            },
+            methods: {
+
+                addBusiness: function () {
+                    this.Business.push({
+                        Name: '',
+
+                        Value: 0
+                    });
+                },
+                demo: function () {
+                    var image = 'data:image/png;base64,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'
+
+
+
+                    // doc.save('Self-Guided-IRA-Report.pdf');
+                }
+            }
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>
+
+
+<!-- 
+methods: {
+
+    addBusiness: function () {
+        this.Business.push({
+            Name: '',
+
+            Value: 0
+        });
+    },
+    demo: function () {
+        var image = 'data:image/png;base64,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'
+
+        var doc = new jsPDF();
+        var y = 8;
+        doc.addImage(image, 'png', 14, y, 120 / 4, 67 / 4);
+        doc.setFontSize(25);
+        y += 10
+        doc.setTextColor(19, 117, 188);
+        doc.text("Report", 160, y);
+
+        for (var i = 0; i < 4; i++) {
+            y = doc.autoTable.previous.finalY + 3;
+            doc.autoTable({
+                html: '#result' + i,
+                startY: y
+            });
+        }
+
+
+        doc.save('Self-Guided-IRA-Report.pdf');
+    }
+}
+
+}); -->
